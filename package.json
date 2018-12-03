@@ -40,14 +40,15 @@
     "xo": {
         "semicolon": true,
         "space": 4,
-        "extensions": [".js", ".mjs"],
         "extends": [
             "./.eslintrc.json"
         ]
     },
     "dependencies": {
         "esm": "3.0.84",
-        "http-status": "1.3.1",
+        "http-status": "1.3.1"
+    },
+    "optionalDependencies": {
         "jsonwebtoken": "^8.4.0"
     }
 }
