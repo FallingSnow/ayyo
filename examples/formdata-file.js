@@ -1,7 +1,7 @@
 const {HTTP2_HEADER_CONTENT_TYPE} = require("http2").constants;
 
 const Joi = require("joi");
-const {Server, Middleware} = require("../");
+const {Server, Middleware, HTTPError} = require("../");
 
 const server = new Server({
     certPath: "/etc/ssl/certs/localhost.pem",
@@ -19,8 +19,15 @@ const router = new Middleware.Router();
 
 const uploadForm = `
 <html>
-<form action="" "">
-<input name="image" type="file" />
+<script>
+async function upload(e) {
+    const response = await fetch('https://localhost:8080/api/upload', {method: "POST", body: new FormData(e.target)});
+    console.log(response);
+}
+</script>
+<form onsubmit="upload(event).catch(console.error); return false;">
+<input name="newName" value="uploaded image" />
+<label>Please upload a png image: <input name="image" type="file" /></label>
 <input type="submit" />
 </form>
 </html>
@@ -43,21 +50,15 @@ const uploadForm = `
                 method: "POST",
                 path: "/upload",
                 handler: async ({req, res}) => {
-                    const matches = /data:(?<mime>.+?\/.+?);base64,(?<content>.*)/.exec(
-                        req.body.image.dataurl
-                    );
-                    const image = matches.groups;
-                    const imageBuffer = Buffer.from(
-                        image.content,
-                        "base64"
-                    );
+                    const imageBuffer = req.body.image.content
+                    if (!imageBuffer.toString('hex').startsWith('89504e47'))
+                        throw new HTTPError(400, "Invalid PNG uploaded");
                     res.body = JSON.stringify({
                         status: "Upload complete!"
                     });
                 },
                 openapi: {
-                    tags: ["user"],
-                    description: "Creates a user in the database.",
+                    description: "Uploads an image",
                     schema: {
                         consumes: {
                             contentTypes: [
@@ -65,9 +66,14 @@ const uploadForm = `
                                 "application/x-msgpack"
                             ],
                             body: Joi.object({
+                                newName: Joi.object({
+                                    content: Joi.binary().required(),
+                                    name: Joi.string().required()
+                                }),
                                 image: Joi.object({
-                                    name: Joi.string().required(),
-                                    dataurl: Joi.string().required()
+                                    content: Joi.binary().required(),
+                                    filename: Joi.string(),
+                                    name: Joi.string().required()
                                 })
                             })
                         },
