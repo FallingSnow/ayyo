@@ -5,7 +5,7 @@
     "main": "index.js",
     "private": true,
     "scripts": {
-        "test": "xo"
+        "style": "xo"
     },
     "repository": {
         "type": "git",
@@ -26,15 +26,18 @@
     },
     "homepage": "https://github.com/FallingSnow/ayyo#readme",
     "devDependencies": {
+        "acorn": "^6.0.4",
         "eslint": "^5.9.0",
         "husky": "^1.2.0",
         "joi": "^14.1.1",
+        "joigoose": "^4.0.2",
+        "mongoose": "^5.3.14",
         "nodemon": "^1.18.7",
         "xo": "^0.23.0"
     },
     "husky": {
         "hooks": {
-            "pre-push": "npm test"
+            "pre-commit": "npm run style"
         }
     },
     "xo": {
