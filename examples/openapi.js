@@ -39,6 +39,7 @@ const openapi = new Middleware.OpenApi({
             },
             openapi: {
                 tags: ['user'],
+                description: "Creates a user in the database.",
                 schema: {
                     consumes: {
                         contentTypes: ['application/json', 'application/x-msgpack'],
@@ -49,7 +50,7 @@ const openapi = new Middleware.OpenApi({
                             name: Joi.string().required()
                         }),
                         body: Joi.object({
-                            description: Joi.string().required()
+                            description: Joi.string().required().example("White, Blue Eyes, 7ft 1in")
                         })
                     },
                     produces: {
@@ -57,14 +58,13 @@ const openapi = new Middleware.OpenApi({
                             contentType: 'application/json',
                             description: 'Ok!',
                             body: Joi.object({
-                                id: Joi.number().required(),
+                                id: Joi.number().required().notes("Identification number associated with this user."),
                                 name: Joi.string().required(),
                                 description: Joi.string().required()
                             })
                         },
                         500: {
                             contentType: 'application/json',
-                            description: 'Internal Error',
                             body: Joi.object({
                                 error: Joi.string().required().example("Internal server error")
                             })
