@@ -50,8 +50,8 @@ async function upload(e) {
                 method: "POST",
                 path: "/upload",
                 handler: async ({req, res}) => {
-                    const imageBuffer = req.body.image.content
-                    if (!imageBuffer.toString('hex').startsWith('89504e47'))
+                    const imageBuffer = req.body.image.content;
+                    if (!imageBuffer.toString("hex").startsWith("89504e47"))
                         throw new HTTPError(400, "Invalid PNG uploaded");
                     res.body = JSON.stringify({
                         status: "Upload complete!"
