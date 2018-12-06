@@ -18,8 +18,22 @@ const openapi = new Middleware.OpenApi({
         info: {
             title: 'Openapi ayyo generated docs',
             version: 'v1'
+        },
+        components: {
+            securitySchemes: {
+                JsonWebToken: {
+                    type: 'http',
+                    schema: 'bearer'
+                }
+            }
         }
     }
+});
+
+const JWT_SECRET = '123';
+
+const authenticatedRouter = new Middleware.Router({
+    path: '/authenticated'
 });
 
 (async () => {
@@ -72,7 +86,76 @@ const openapi = new Middleware.OpenApi({
                     }
                 }
             }
+        }), new Middleware.Route({
+            method: 'GET',
+            path: '/login',
+            handler: async ({
+                req,
+                res
+            }) => {
+                res.body = JSON.stringify({
+                    token: await Middleware.JsonWebToken.sign({
+                        hello: "world"
+                    }, JWT_SECRET)
+                });
+            },
+            openapi: {
+                tags: ['user'],
+                description: "Generates jwt token for user",
+                security: [{JsonWebToken: []}],
+                schema: {
+                    produces: {
+                        200: {
+                            contentType: 'application/json',
+                            body: Joi.object({
+                                token: Joi.string().required()
+                            })
+                        },
+                        500: {
+                            contentType: 'application/json',
+                            body: Joi.object({
+                                error: Joi.string().required().example("Internal server error")
+                            })
+                        }
+                    }
+                }
+            }
         }));
+        await authenticatedRouter.use(new Middleware.JsonWebToken({secret: JWT_SECRET, onFail: ({res}, error) => ({error: "Invalid JWT"})}));
+        await authenticatedRouter.use(new Middleware.Route({
+            method: 'GET',
+            path: '/',
+            handler: async ({
+                req,
+                res
+            }) => {
+                res.body = JSON.stringify({
+                    tokenContents: req.jwt
+                });
+            },
+            openapi: {
+                description: "Checks if JWT is valid.",
+                security: [{JsonWebToken: []}],
+                schema: {
+                    produces: {
+                        200: {
+                            contentType: 'application/json',
+                            description: 'Ok!',
+                            body: Joi.object({
+                                tokenContents: Joi.any().required()
+                            })
+                        },
+                        500: {
+                            contentType: 'application/json',
+                            body: Joi.object({
+                                error: Joi.string().required().example("Internal server error")
+                            })
+                        }
+                    }
+                }
+            }
+        }));
+        await openapi.use(authenticatedRouter);
         await server.use(openapi);
         await server.listen(8080);
     } catch (e) {
