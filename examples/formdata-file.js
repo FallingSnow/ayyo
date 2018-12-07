@@ -62,8 +62,7 @@ async function upload(e) {
                     schema: {
                         consumes: {
                             contentTypes: [
-                                "application/json",
-                                "application/x-msgpack"
+                                "multipart/form-data",
                             ],
                             body: Joi.object({
                                 newName: Joi.object({
