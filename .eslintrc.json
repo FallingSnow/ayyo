@@ -6,16 +6,13 @@
     "extends": ["eslint:recommended"],
     "parserOptions": {
         "ecmaVersion": 2018,
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true
-        },
         "sourceType": "module"
     },
     "rules": {
         "semi": "warn",
         "no-useless-escape": "warn",
         "comma-dangle": "off",
-        "quotes": "off",
+        "quotes": ["warn", "double"],
         "no-multiple-empty-lines": "off",
         "import/first": "off",
         "require-await": "off",

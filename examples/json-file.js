@@ -68,10 +68,7 @@ async function upload(e) {
                         req.body.image.dataurl
                     );
                     const image = matches.groups;
-                    const _imageBuffer = Buffer.from(
-                        image.content,
-                        "base64"
-                    );
+                    const _imageBuffer = Buffer.from(image.content, "base64");
                     res.body = JSON.stringify({
                         status: "Upload complete!"
                     });

@@ -1,9 +1,14 @@
+# Ayyo
+
 ### Work in Progress
 
 
 ## Features
 - [x] HTTP2 TLS Only
 - [x] Async Routing
+    - [x] Nested Routing
+- [x] Static Directory Serving
+- [x] CORS
 - [x] Json Web Token Support
 - [x] OpenAPI documentation generation
     - [x] Request validation
