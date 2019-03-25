@@ -10,6 +10,7 @@
 - [x] Static Directory Serving
 - [x] CORS
 - [x] Json Web Token Support
+    - [ ] Revoked Tokens
 - [x] OpenAPI documentation generation
     - [x] Request validation
     - [x] Response validation
