@@ -14,3 +14,4 @@
 - [x] OpenAPI documentation generation
     - [x] Request validation
     - [x] Response validation
+    - [ ] Defaults
