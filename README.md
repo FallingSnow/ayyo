@@ -14,4 +14,6 @@
 - [x] OpenAPI documentation generation
     - [x] Request validation
     - [x] Response validation
-    - [ ] Defaults
+    - [x] Defaults
+- [ ] Rate limiting
+    - [ ] [Slow down](https://www.npmjs.com/package/express-slow-down)
