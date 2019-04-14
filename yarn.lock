@@ -30,7 +30,7 @@
 
 "@hapi/joi@git+https://github.com/FallingSnow/joi.git#feature/validation-strip-option":
   version "15.0.0"
-  resolved "git+https://github.com/FallingSnow/joi.git#b619d1eed1c55dfb6c09d09214d3a9e36acdd6ce"
+  resolved "git+https://github.com/FallingSnow/joi.git#c5a0b568aefb82061d96656dec6dbf098ab6c2e2"
   dependencies:
     "@hapi/address" "2.x.x"
     "@hapi/hoek" "6.x.x"
