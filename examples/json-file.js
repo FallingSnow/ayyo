@@ -1,6 +1,6 @@
 const {HTTP2_HEADER_CONTENT_TYPE} = require("http2").constants;
 
-const Joi = require("joi");
+const Joi = require("@hapi/joi");
 const {Server, Middleware} = require("../");
 
 const server = new Server({

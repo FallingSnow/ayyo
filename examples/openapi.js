@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require("@hapi/joi");
 const {Server, Middleware} = require("../");
 
 const server = new Server({
