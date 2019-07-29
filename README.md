@@ -8,6 +8,7 @@
 - [x] Async Routing
     - [x] Nested Routing
 - [x] Static Directory Serving
+  - [ ] [Use magic numbers to determine file types](https://www.npmjs.com/package/file-type)
 - [x] CORS
 - [x] Json Web Token Support
     - [ ] Revoked Tokens
