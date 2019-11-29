@@ -25,12 +25,12 @@ evtSource.onmessage = function(e) {
     });
     sse.onConnection = async (client) => {
       // eslint-disable-next-line no-console
-      console.debug(`New SSE connection`);
+      console.debug("New SSE connection");
       await client.send((new Date()).toString(), "ping");
     };
-    sse.onClose = async (client) => {
+    sse.onClose = async (_client) => {
       // eslint-disable-next-line no-console
-      console.debug(`Lost SSE connection`);
+      console.debug("Lost SSE connection");
     };
 
     await router.use(
