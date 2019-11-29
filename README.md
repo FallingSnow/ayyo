@@ -24,3 +24,4 @@
 - [ ] Compression
     - [ ] Gzip
     - [ ] Brotli
+- [x] Automatic Self Signed SSL/TLS

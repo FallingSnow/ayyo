@@ -55,6 +55,7 @@
         "jsonwebtoken": "^8.4.0",
         "mime": "^2.4.0",
         "prettier": "^1.15.3",
+        "selfsigned": "^1.10.7",
         "traverse": "^0.6.6"
     }
 }
