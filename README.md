@@ -26,3 +26,5 @@
     - [ ] Brotli
 - [x] Automatic Self Signed SSL/TLS
 - [ ] Caching
+    - [x] Default Caching
+    - [ ] Real Caching
