@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "description": "A lightweight all-in-one web router. MEEP",
     "main": "index.js",
+    "module": "lib/index.js",
     "private": true,
     "scripts": {
         "style": "xo"

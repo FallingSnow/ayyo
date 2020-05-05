@@ -23,12 +23,12 @@ evtSource.onmessage = function(e) {
       method: "GET",
       path: "/sse",
     });
-    sse.onConnection = async (client) => {
+    sse.onConnection = async ({client}) => {
       // eslint-disable-next-line no-console
       console.debug("New SSE connection");
       await client.send((new Date()).toString(), "ping");
     };
-    sse.onClose = async (_client) => {
+    sse.onClose = async ({client: _client}) => {
       // eslint-disable-next-line no-console
       console.debug("Lost SSE connection");
     };
