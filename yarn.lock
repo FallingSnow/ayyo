@@ -3251,6 +3251,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
+simple-cookie@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/simple-cookie/-/simple-cookie-1.0.10.tgz#0ea279ec58eae3a8aa7052e0008d73b59db8be08"
+  integrity sha512-oMgjPKrr2/EQfmkKc6mCapYecOEUxyG8MZ+8vpXZDcA174oWZxIUoUpPmJzX8b0XnEfhXASbzUoKl6I1WlXjSA==
+
 slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
