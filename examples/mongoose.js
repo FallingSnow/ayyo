@@ -25,10 +25,7 @@ const user = Joi.object({
 });
 mongoose.model("User", new mongoose.Schema(Joig.convert(user)));
 
-const server = new Server({
-  certPath: "/etc/ssl/certs/localhost.pem",
-  privKeyPath: "/etc/ssl/private/localhost.pem"
-});
+const server = new Server();
 const openapi = new Middleware.OpenApi({
   path: "/api",
   doc: {

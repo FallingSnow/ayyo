@@ -1,9 +1,6 @@
 const {Server, Middleware} = require("../");
 
-const server = new Server({
-  certPath: "/etc/ssl/certs/localhost.pem",
-  privKeyPath: "/etc/ssl/private/localhost.pem"
-});
+const server = new Server();
 const router = new Middleware.Router();
 const subrouter = new Middleware.Router({path: "/api"});
 

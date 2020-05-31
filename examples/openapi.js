@@ -1,10 +1,7 @@
 const Joi = require("@hapi/joi");
 const {Server, Middleware} = require("../");
 
-const server = new Server({
-  certPath: "/etc/ssl/certs/localhost.pem",
-  privKeyPath: "/etc/ssl/private/localhost.pem"
-});
+const server = new Server();
 const openapi = new Middleware.OpenApi({
   path: "/api",
   doc: {

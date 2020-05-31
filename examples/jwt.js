@@ -1,10 +1,7 @@
 const {HTTP2_HEADER_SET_COOKIE} = require("http2").constants;
 const {Server, Middleware} = require("../");
 
-const server = new Server({
-  certPath: "/etc/ssl/certs/localhost.pem",
-  privKeyPath: "/etc/ssl/private/localhost.pem"
-});
+const server = new Server();
 
 (async () => {
   try {
