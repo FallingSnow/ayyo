@@ -32,3 +32,4 @@
 - [ ] Caching
     - [x] Default Caching
     - [ ] Real Caching
+- [ ] Create new metadata middleware (from existing Server.\_endStream)
