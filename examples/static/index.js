@@ -2,6 +2,7 @@ const {Server, Middleware} = require("../../");
 
 const server = new Server();
 const router = new Middleware.Router();
+const cache = new Middleware.Cache({weak: false});
 
 (async () => {
   try {
@@ -12,6 +13,7 @@ const router = new Middleware.Router();
       })
     );
     await server.use(router);
+    await server.use(cache);
     await server.listen(8080);
   } catch (e) {
     // eslint-disable-next-line no-console
