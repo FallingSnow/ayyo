@@ -5,7 +5,7 @@
 
 ## Features
 - [x] HTTP2 TLS Only
-- [ ] HTTP redirect
+- [ ] HTTP -> HTTPS redirect
 - [x] Async Routing
     - [x] Nested Routing
 - [x] Static Directory Serving
@@ -33,3 +33,7 @@
     - [x] Default Caching
     - [ ] Real Caching
 - [ ] Create new metadata middleware (from existing Server.\_endStream)
+
+
+#### Notes
+- HTTP1 to HTTP2 upgrade mechanism is not implemented because no major browsers support it. They only support upgrade to HTTP2 via ALPN. https://stackoverflow.com/questions/37322430/browser-wont-upgrade-to-h2-altough-upgrade-headers-are-sent
