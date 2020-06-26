@@ -1,3 +1,6 @@
 // eslint-disable-next-line no-global-assign
 require = require("esm")(module);
-module.exports = require("./lib/index.js");
+const ayyo = require("./lib/index.js");
+
+module.exports = ayyo;
+module.exports.default = ayyo;
