@@ -57,6 +57,7 @@
         "luxon": "^1.22.0",
         "mime": "^2.4.6",
         "prettier": "^1.15.3",
+        "readable-stream-clone": "^0.0.7",
         "selfsigned": "^1.10.7",
         "simple-cookie": "^1.0.10",
         "traverse": "^0.6.6",
