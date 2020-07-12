@@ -1,24 +1,39 @@
-const _test1 = `--------------------------d74496d66958873e
-Content-Disposition: form-data; name="person"
+const http2 = require("http2");
 
-anonymous
---------------------------d74496d66958873e--`;
-const _test2 = `--------------------------d74496d66958873e
-Content-Disposition: form-data; name="person"
+const test = require("ava");
+const FormData = require("form-data");
 
-anonymous
---------------------------d74496d66958873e
-Content-Disposition: form-data; name="multiline-secret"; filename="file2.txt"
-Content-Type: text/plain
+const {Middleware} = require("../");
+const {initServer} = require("./_utils.js");
 
-contents of the file
+const {
+  HTTP2_HEADER_STATUS,
+} = http2.constants;
 
-don't tell anyone
+initServer();
 
-ok?
---------------------------d74496d66958873e
-Content-Disposition: form-data; name="secret"; filename="file.txt"
-Content-Type: text/plain
+test("uploading formdata", async t => {
+  t.plan(2);
+  const route = new Middleware.Route({
+    path: "form",
+    method: "POST",
+    handler: async ({req, res}) => {
+      t.log("Route received body:", req.body);
+      res.body = req.body;
+    }
+  });
+  await t.context.router.use(route);
+  const form = new FormData();
+  form.append("person", "anonymous");
+  t.log("FormData boundary:", form._boundary);
 
-contents of the file
---------------------------d74496d66958873e--`;
+  const {headers, body} = await t.context.client.post("form", {
+    body: form,
+    responseType: "json"
+  });
+  t.is(headers[HTTP2_HEADER_STATUS], 200);
+  t.deepEqual(body, {person: "anonymous"});
+});
+
+
+test.todo("uploading formdata files");

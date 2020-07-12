@@ -28,11 +28,18 @@
     - [x] Brotli
     - [x] Compress streams (static middleware)
     - [ ] Compress generated responses
+    - [ ] Memory Caching
 - [x] Automatic Self Signed SSL/TLS
 - [ ] Caching
-    - [x] Default Caching
-    - [ ] Real Caching
+    - [x] Weak Browser Caching
+    - [x] Strong Browser Caching
 - [ ] Create new metadata middleware (from existing Server.\_endStream)
+- [ ] Security
+    - [ ] X-XSS-Protection
+    - [ ] Content-Security-Policy
+    - [ ] X-Frame-Options
+    - [ ] X-Content-Type-Options
+    - [ ] Strict-Transport-Security
 
 
 #### Notes

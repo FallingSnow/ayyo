@@ -1,3 +1,6 @@
+.parcel-cache
+public
+
 # Logs
 logs
 *.log

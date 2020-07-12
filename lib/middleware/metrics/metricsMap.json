@@ -1,0 +1,9 @@
+{
+  "requests": {
+    "total": {
+      "label": "Total Requests",
+      "icon": "ExchangeAlt",
+      "unit": "requests"
+    }
+  }
+}
