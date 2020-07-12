@@ -93,6 +93,7 @@
         "prettier": "^2.0.5",
         "sharedmap": "^1.1.1",
         "tmp": "^0.2.1",
-        "ua-parser-js": "^0.7.21"
+        "ua-parser-js": "^0.7.21",
+        "xxhash": "^0.3.0"
     }
 }
