@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const server = new Server();
 const router = new Middleware.Router();
+const cache = new Middleware.Cache({weak: false});
 
 async function main() {
   await router.use(

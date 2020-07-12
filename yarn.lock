@@ -5027,7 +5027,21 @@ read-pkg@^5.2.0:
     parse-json "^5.0.0"
     type-fest "^0.6.0"
 
-readable-stream@^2.0.2:
+read-pkg@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-4.0.1.tgz#963625378f3e1c4d48c85872b5a6ec7d5d093237"
+  integrity sha1-ljYlN48+HE1IyFhytabsfV0JMjc=
+  dependencies:
+    normalize-package-data "^2.3.2"
+    parse-json "^4.0.0"
+    pify "^3.0.0"
+
+readable-stream-clone@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/readable-stream-clone/-/readable-stream-clone-0.0.7.tgz#318163a8f3f2884d3dbb5fd9b154487a229e32a7"
+  integrity sha512-mdkQtdg5elliOR64xcHVMkghSHQGjpsdCFAs6fSe28wTaVypR0GywmK5ndKpOSQzzuNpSrzC12Rv9UEkDLX73A==
+
+readable-stream@^2.0.2, readable-stream@^2.0.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
