@@ -46,7 +46,7 @@
     "react-dom": "^16.13.1",
     "react-refresh": "^0.8.3",
     "responsive-loader": "^1.2.0",
-    "sharp": "^0.25.4",
+    "sharp": "^0.30.5",
     "style-loader": "^1.2.1",
     "typeface-raleway": "^0.0.75",
     "webpack": "^4.43.0",
